@@ -1,0 +1,23 @@
+Vision: Real-time visual feedback for meditation practice
+
+Conditions:
+- Record signals via OpenBCI
+- Transform signals into visual
+		- Trained NN translates incoming signals into a transformed output
+				- An API protocol is established between EEG device and trained neural network
+				- There exists a trained nn that is able to receive and transform data through API port
+						- There is a nn trained on signal 
+				- Trained NN is able to output transformed signal to display API port
+		- Display protocol takes transformed output and displays it
+
+- Work Plan:
+		- Find research on EEG signal processing
+				- Answer: what can I do with this? 
+		- Develop a trained Recurrent NN that takes in a signal and outputs it
+				- Identify Auto-encoder architectures for time-series NN's
+				- Identify time-series transformation techniques (Fourier Visualizer)
+		- Develop a visualizer for time-series data
+		- Connect trained Recurrent NN and visualizer
+
+- Prototype I: Take incoming signal, display transformed signal statistics
+- Prototype II: Take incoming signal, auto-encode 
