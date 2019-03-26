@@ -1,0 +1,7 @@
+OpenBCI:
+- Documentation: https://docs.openbci.com/Getting%20Started/00-Welcome
+- OpenBCI_GUI Repo: https://github.com/OpenBCI/OpenBCI_GUI
+- OpenBCI_Python Repo: https://github.com/OpenBCI/OpenBCI_Python#install
+- Software Downloads: https://openbci.com/index.php/downloads
+- Digital Signal Processing in Python: http://greenteapress.com/wp/think-dsp/
+
