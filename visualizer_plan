@@ -11,17 +11,20 @@ Conditions:
 		- Display protocol takes transformed output and displays it
 
 - Work Plan:
-		- Find research on EEG signal processing
-				- Answer: what can I do with this? 
-		- Develop basic display protocol:
-				- Summary Statistics:
-						- FFT
-				- Live graphs
-		- Develop a trained Recurrent NN that takes in a signal and outputs it
-				- Identify Auto-encoder architectures for time-series NN's
-				- Identify time-series transformation techniques (Fourier Visualizer)
-		- Develop a visualizer for time-series data
-		- Connect trained Recurrent NN and visualizer
+		- [] Find research on EEG signal processing
+				- Be able to answer: "what can I do with this?"
+		- [] Develop basic display protocol:
+				- [] Summary Statistics:
+						- [X] FFT
+				- [] Live graphs
+		- [] Practice multiple time-series-based online projects
+				- 
+		- [] Develop a trained Recurrent NN that takes in a signal and outputs it
+				- [] Identify Auto-encoder architectures for time-series NN's
+				- [] Identify time-series transformation techniques (Fourier Visualizer)
+		- [] Develop a visualizer for time-series data
+		- [] Connect trained Recurrent NN and visualizer
+
 
 - Prototype I: Take incoming signal, display transformed signal statistics
 - Prototype II: Take incoming signal, auto-encode 
