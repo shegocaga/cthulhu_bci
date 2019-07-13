@@ -1,5 +1,6 @@
 """
 Source: https://raw.githubusercontent.com/OpenBCI/pyOpenBCI/master/Examples/lsl_example.py
+Run with: liblsl-Python/pylsl/examples/ReceiveAndPlot.py
 """
 from pyOpenBCI import OpenBCICyton
 from pylsl import StreamInfo, StreamOutlet
