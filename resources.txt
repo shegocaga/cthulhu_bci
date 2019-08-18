@@ -4,4 +4,4 @@ OpenBCI:
 - OpenBCI_Python Repo: https://github.com/OpenBCI/OpenBCI_Python#install
 - Software Downloads: https://openbci.com/index.php/downloads
 - Digital Signal Processing in Python: http://greenteapress.com/wp/think-dsp/
-
+- This is an example.
