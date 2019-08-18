@@ -4,9 +4,8 @@ Source Materials: https://docs.openbci.com/OpenBCI%20Software/05-OpenBCI_Python#
     - Keyboard Interrupt: https://stackoverflow.com/questions/4205317/capture-keyboardinterrupt-in-python-without-try-except
 
 Pull in raw data from Cyton Board using bluetooth arduino
-
-
 """
+
 from pyOpenBCI import OpenBCICyton
 import time
 import numpy as np
