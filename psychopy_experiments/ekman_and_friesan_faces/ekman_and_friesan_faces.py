@@ -1,7 +1,14 @@
 ﻿#!/usr/bin/env python
 # -*- coding: utf-8 -*-
 """
-This experiment was created using PsychoPy3 Experiment Builder (v3.2.0),
+Author: Zach Osman
+Description:
+    Set up Ekman and Friesan faces experiment:
+    -   Display faces with known reactions using PsychoPy, export event
+        timestamps to LSL 
+    -   Record Reaction of faces (using OpenBCI + LSL)  
+
+This experiment was (initially) created using PsychoPy3 Experiment Builder (v3.2.0),
     on Sun Sep  8 17:22:44 2019
 If you publish work using this script the most relevant publication is:
 
@@ -27,6 +34,13 @@ import os  # handy system and path functions
 import sys  # to get file system encoding
 
 from psychopy.hardware import keyboard
+
+from pylsl import StreamInfo, StreamOutlet # Import LSL streaming library
+
+# Set up stream to LSL
+stream_info = StreamInfo(name='psychopy_stimuli', type='Markers', channel_count=1, channel_format='int32', source_id='psychopy')
+outlet = StreamOutlet(stream_info) # Initialize Stream
+stimuli_status = 0
 
 # Ensure that relative paths start from the same directory as this script
 _thisDir = os.path.dirname(os.path.abspath(__file__))
@@ -63,7 +77,7 @@ frameTolerance = 0.001  # how close to onset before 'same' frame
 
 # Setup the Window
 win = visual.Window(
-    size=(1024, 768), fullscr=True, screen=0, 
+    size=(1440, 900), fullscr=True, screen=0, 
     winType='pyglet', allowGUI=False, allowStencil=False,
     monitor='testMonitor', color=[0,0,0], colorSpace='rgb',
     blendMode='avg', useFBO=True, 
@@ -120,6 +134,7 @@ trialClock.reset(-_timeToFirstFrame)  # t0 is time of first possible flip
 frameN = -1
 continueRoutine = True
 
+
 # -------Run Routine "trial"-------
 while continueRoutine and routineTimer.getTime() > 0:
     # get current time
@@ -131,13 +146,17 @@ while continueRoutine and routineTimer.getTime() > 0:
     
     # *suspicious* updates
     if suspicious.status == NOT_STARTED and tThisFlip >= 2-frameTolerance:
+        stimuli_status = 0
         # keep track of start time/frame for later
         suspicious.frameNStart = frameN  # exact frame index
         suspicious.tStart = t  # local t and not account for scr refresh
         suspicious.tStartRefresh = tThisFlipGlobal  # on global time
         win.timeOnFlip(suspicious, 'tStartRefresh')  # time at next scr refresh
         suspicious.setAutoDraw(True)
+        outlet.push_sample(x=[stimuli_status])
     if suspicious.status == STARTED:
+        stimuli_status = 1
+        outlet.push_sample(x=[stimuli_status])
         # is it time to stop? (based on global clock, using actual start)
         if tThisFlipGlobal > suspicious.tStartRefresh + 6-frameTolerance:
             # keep track of stop time/frame for later
@@ -148,13 +167,17 @@ while continueRoutine and routineTimer.getTime() > 0:
     
     # *confident* updates
     if confident.status == NOT_STARTED and tThisFlip >= 10-frameTolerance:
+        stimuli_status = 0
         # keep track of start time/frame for later
         confident.frameNStart = frameN  # exact frame index
         confident.tStart = t  # local t and not account for scr refresh
         confident.tStartRefresh = tThisFlipGlobal  # on global time
         win.timeOnFlip(confident, 'tStartRefresh')  # time at next scr refresh
         confident.setAutoDraw(True)
+        outlet.push_sample(x=[stimuli_status])
     if confident.status == STARTED:
+        stimuli_status = 1
+        outlet.push_sample(x=[stimuli_status])
         # is it time to stop? (based on global clock, using actual start)
         if tThisFlipGlobal > confident.tStartRefresh + 6-frameTolerance:
             # keep track of stop time/frame for later
