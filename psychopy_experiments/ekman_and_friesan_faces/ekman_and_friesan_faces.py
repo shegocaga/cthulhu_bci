@@ -1,7 +1,7 @@
 ﻿#!/usr/bin/env python
 # -*- coding: utf-8 -*-
 """
-Author: Zach Osman
+Author: zachandfox
 Description:
     Set up Ekman and Friesan faces experiment:
     -   Display faces with known reactions using PsychoPy, export event
@@ -77,7 +77,7 @@ frameTolerance = 0.001  # how close to onset before 'same' frame
 
 # Setup the Window
 win = visual.Window(
-    size=(1440, 900), fullscr=True, screen=0, 
+    size=(1440, 900), fullscr=False, screen=0, 
     winType='pyglet', allowGUI=False, allowStencil=False,
     monitor='testMonitor', color=[0,0,0], colorSpace='rgb',
     blendMode='avg', useFBO=True, 
@@ -143,20 +143,29 @@ while continueRoutine and routineTimer.getTime() > 0:
     tThisFlipGlobal = win.getFutureFlipTime(clock=None)
     frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
     # update/draw components on each frame
+
+    if (suspicious.status == 1 or confident.status == 1):
+        stimuli_status = 1
+    else:
+        stimuli_status = 0
     
+#    print(('continueRoutine = {} \n   '+
+#        't = {} \n   '+
+#        'tThisFlip = {} \n   '+
+#        'tThisFlipGlobal = {} \n   '+
+#        'frameN = {} \n   '+
+#        'suspicious.status = {} \n   '+
+#        'confident.status = {} \n   '+
+#        '-----------------------------------------').format(continueRoutine, t, tThisFlip, tThisFlipGlobal, frameN, suspicious.status, confident.status))
     # *suspicious* updates
     if suspicious.status == NOT_STARTED and tThisFlip >= 2-frameTolerance:
-        stimuli_status = 0
         # keep track of start time/frame for later
         suspicious.frameNStart = frameN  # exact frame index
         suspicious.tStart = t  # local t and not account for scr refresh
         suspicious.tStartRefresh = tThisFlipGlobal  # on global time
         win.timeOnFlip(suspicious, 'tStartRefresh')  # time at next scr refresh
         suspicious.setAutoDraw(True)
-        outlet.push_sample(x=[stimuli_status])
     if suspicious.status == STARTED:
-        stimuli_status = 1
-        outlet.push_sample(x=[stimuli_status])
         # is it time to stop? (based on global clock, using actual start)
         if tThisFlipGlobal > suspicious.tStartRefresh + 6-frameTolerance:
             # keep track of stop time/frame for later
@@ -167,17 +176,13 @@ while continueRoutine and routineTimer.getTime() > 0:
     
     # *confident* updates
     if confident.status == NOT_STARTED and tThisFlip >= 10-frameTolerance:
-        stimuli_status = 0
         # keep track of start time/frame for later
         confident.frameNStart = frameN  # exact frame index
         confident.tStart = t  # local t and not account for scr refresh
         confident.tStartRefresh = tThisFlipGlobal  # on global time
         win.timeOnFlip(confident, 'tStartRefresh')  # time at next scr refresh
         confident.setAutoDraw(True)
-        outlet.push_sample(x=[stimuli_status])
     if confident.status == STARTED:
-        stimuli_status = 1
-        outlet.push_sample(x=[stimuli_status])
         # is it time to stop? (based on global clock, using actual start)
         if tThisFlipGlobal > confident.tStartRefresh + 6-frameTolerance:
             # keep track of stop time/frame for later
@@ -186,6 +191,9 @@ while continueRoutine and routineTimer.getTime() > 0:
             win.timeOnFlip(confident, 'tStopRefresh')  # time at next scr refresh
             confident.setAutoDraw(False)
     
+    print(stimuli_status)
+    outlet.push_sample(x=[stimuli_status])
+
     # check for quit (typically the Esc key)
     if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
         core.quit()
