@@ -5,3 +5,8 @@ OpenBCI:
 - Software Downloads: https://openbci.com/index.php/downloads
 - Digital Signal Processing in Python: http://greenteapress.com/wp/think-dsp/
 - This is an example.
+
+Helpful Pythonic Commands:
+- Inspect virtual environment: https://stackoverflow.com/questions/36539623/how-do-i-find-the-name-of-the-conda-environment-in-which-my-code-is-running
+		- Used to verify that PsychoPy3 is using the 'bci' environment
+
