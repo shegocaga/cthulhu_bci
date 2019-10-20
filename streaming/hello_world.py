@@ -14,10 +14,15 @@ output = np.zeros(8)
 timer = 1000
 SCALE_FACTOR_EEG = (4500000)/24/(2**23-1) #uV/count
 
+print("Starting Script") 
+
+# OpenBCICyton() will cause an OS exception if no OpenBCI port is connected
+# TODO: wrap in an try, catch statement
 board = OpenBCICyton()
 
 MaxVal = 100000
 StepInterval = 1
+
 
 ### start_stream method ###
 #def print_raw(sample):
