@@ -37,6 +37,9 @@ from psychopy.hardware import keyboard
 
 from pylsl import StreamInfo, StreamOutlet # Import LSL streaming library
 
+# setup realitive image file loactions
+suspicious_image_path = '/Users/shegocaga/OpenBCI/cthulhu_bci/psychopy_experiments/ekman_and_friesan_faces/assets/suspicious.png'
+
 # Set up stream to LSL
 stream_info = StreamInfo(name='psychopy_stimuli', type='Markers', channel_count=1, channel_format='int32', source_id='psychopy')
 outlet = StreamOutlet(stream_info) # Initialize Stream
@@ -97,7 +100,7 @@ trialClock = core.Clock()
 suspicious = visual.ImageStim(
     win=win,
     name='suspicious', 
-    image='/Users/shegocaga/OpenBCI/cthulhu_bci/psychopy_experiments/ekman_and_friesan_faces/assets/suspicious.png', mask=None,
+    image=suspicious_image_path, mask=None,
     ori=0, pos=(0, 0), size=(0.5, 0.5),
     color=[1,1,1], colorSpace='rgb', opacity=1,
     flipHoriz=False, flipVert=False,
