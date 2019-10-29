@@ -1,7 +1,7 @@
 """
 Author: zachandfox
 Co-author: Will Schoonhalls
-some change here
+another change for Will
 Source Materials: https://docs.openbci.com/OpenBCI%20Software/05-OpenBCI_Python#pyopenbci-installation
     - Keyboard Interrupt: https://stackoverflow.com/questions/4205317/capture-keyboardinterrupt-in-python-without-try-except
 
