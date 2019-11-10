@@ -37,8 +37,12 @@ from psychopy.hardware import keyboard
 
 from pylsl import StreamInfo, StreamOutlet # Import LSL streaming library
 
-# setup realitive image file loactions
-suspicious_image_path = '/Users/shegocaga/OpenBCI/cthulhu_bci/psychopy_experiments/ekman_and_friesan_faces/assets/suspicious.png'
+# setup realitive asset folder path
+one_folder_up = os.path.abspath(os.path.join(__file__,"../../../.."))
+asset_folder = one_folder_up + '/assets_cthulhu_bci/psychopy_experiments/ekman_and_friesan_faces'
+
+suspicious_image_path = asset_folder + '/suspicious.png'
+confident_image_path = asset_folder + '/confident.png'
 
 # Set up stream to LSL
 stream_info = StreamInfo(name='psychopy_stimuli', type='Markers', channel_count=1, channel_format='int32', source_id='psychopy')
@@ -108,7 +112,7 @@ suspicious = visual.ImageStim(
 confident = visual.ImageStim(
     win=win,
     name='confident', 
-    image='/Users/shegocaga/OpenBCI/cthulhu_bci/psychopy_experiments/ekman_and_friesan_faces/assets/confident.png', mask=None,
+    image= confident_image_path, mask=None,
     ori=0, pos=(0, 0), size=(0.5, 0.5),
     color=[1,1,1], colorSpace='rgb', opacity=1,
     flipHoriz=False, flipVert=False,
