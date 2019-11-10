@@ -38,9 +38,7 @@ from psychopy.hardware import keyboard
 from pylsl import StreamInfo, StreamOutlet # Import LSL streaming library
 
 # Import path to faces
-assets_cthulhu_bci = os.environ['ASSETS_CTHULHU_BCI']
-ef_assets = assets_cthulhu_bci + \
-'/psychopy_experiments/ekman_and_friesan_faces'
+stimuli_folder = '/visual_stimuli/'
 
 # Set up stream to LSL
 stream_info = StreamInfo(name='psychopy_stimuli', type='Markers',
@@ -100,18 +98,18 @@ defaultKeyboard = keyboard.Keyboard()
 
 # Initialize components for Routine "trial"
 trialClock = core.Clock()
-suspicious = visual.ImageStim(
+sad = visual.ImageStim(
     win=win,
-    name='suspicious', 
-    image=ef_assets+'/suspicious.png', mask=None,
+    name='sad', 
+    image=stimuli_folder+'FACE_SAD.png', mask=None,
     ori=0, pos=(0, 0), size=(0.5, 0.5),
     color=[1,1,1], colorSpace='rgb', opacity=1,
     flipHoriz=False, flipVert=False,
     texRes=128, interpolate=True, depth=0.0)
-confident = visual.ImageStim(
+happy = visual.ImageStim(
     win=win,
-    name='confident', 
-    image=ef_assets+'/confident.png', mask=None,
+    name='happy', 
+    image=stimuli_folder+'FACE_HAPPY.png', mask=None,
     ori=0, pos=(0, 0), size=(0.5, 0.5),
     color=[1,1,1], colorSpace='rgb', opacity=1,
     flipHoriz=False, flipVert=False,
@@ -125,7 +123,7 @@ routineTimer = core.CountdownTimer()  # to track time remaining of each (non-sli
 routineTimer.add(16.000000)
 # update component parameters for each repeat
 # keep track of which components have finished
-trialComponents = [suspicious, confident]
+trialComponents = [sadness, happy]
 for thisComponent in trialComponents:
     thisComponent.tStart = None
     thisComponent.tStop = None
@@ -150,7 +148,7 @@ while continueRoutine and routineTimer.getTime() > 0:
     frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
     # update/draw components on each frame
 
-    if (suspicious.status == 1 or confident.status == 1):
+    if (sadness.status == 1 or happy.status == 1):
         stimuli_status = 1
     else:
         stimuli_status = 0
@@ -160,42 +158,42 @@ while continueRoutine and routineTimer.getTime() > 0:
 #        'tThisFlip = {} \n   '+
 #        'tThisFlipGlobal = {} \n   '+
 #        'frameN = {} \n   '+
-#        'suspicious.status = {} \n   '+
-#        'confident.status = {} \n   '+
-#        '-----------------------------------------').format(continueRoutine, t, tThisFlip, tThisFlipGlobal, frameN, suspicious.status, confident.status))
-    # *suspicious* updates
-    if suspicious.status == NOT_STARTED and tThisFlip >= 2-frameTolerance:
+#        'sadness.status = {} \n   '+
+#        'happy.status = {} \n   '+
+#        '-----------------------------------------').format(continueRoutine, t, tThisFlip, tThisFlipGlobal, frameN, sadness.status, happy.status))
+    # *sadness* updates
+    if sadness.status == NOT_STARTED and tThisFlip >= 2-frameTolerance:
         # keep track of start time/frame for later
-        suspicious.frameNStart = frameN  # exact frame index
-        suspicious.tStart = t  # local t and not account for scr refresh
-        suspicious.tStartRefresh = tThisFlipGlobal  # on global time
-        win.timeOnFlip(suspicious, 'tStartRefresh')  # time at next scr refresh
-        suspicious.setAutoDraw(True)
-    if suspicious.status == STARTED:
+        sadness.frameNStart = frameN  # exact frame index
+        sadness.tStart = t  # local t and not account for scr refresh
+        sadness.tStartRefresh = tThisFlipGlobal  # on global time
+        win.timeOnFlip(sadness, 'tStartRefresh')  # time at next scr refresh
+        sadness.setAutoDraw(True)
+    if sadness.status == STARTED:
         # is it time to stop? (based on global clock, using actual start)
-        if tThisFlipGlobal > suspicious.tStartRefresh + 6-frameTolerance:
+        if tThisFlipGlobal > sadness.tStartRefresh + 6-frameTolerance:
             # keep track of stop time/frame for later
-            suspicious.tStop = t  # not accounting for scr refresh
-            suspicious.frameNStop = frameN  # exact frame index
-            win.timeOnFlip(suspicious, 'tStopRefresh')  # time at next scr refresh
-            suspicious.setAutoDraw(False)
+            sadness.tStop = t  # not accounting for scr refresh
+            sadness.frameNStop = frameN  # exact frame index
+            win.timeOnFlip(sadness, 'tStopRefresh')  # time at next scr refresh
+            sadness.setAutoDraw(False)
     
-    # *confident* updates
-    if confident.status == NOT_STARTED and tThisFlip >= 10-frameTolerance:
+    # *happy* updates
+    if happy.status == NOT_STARTED and tThisFlip >= 10-frameTolerance:
         # keep track of start time/frame for later
-        confident.frameNStart = frameN  # exact frame index
-        confident.tStart = t  # local t and not account for scr refresh
-        confident.tStartRefresh = tThisFlipGlobal  # on global time
-        win.timeOnFlip(confident, 'tStartRefresh')  # time at next scr refresh
-        confident.setAutoDraw(True)
-    if confident.status == STARTED:
+        happy.frameNStart = frameN  # exact frame index
+        happy.tStart = t  # local t and not account for scr refresh
+        happy.tStartRefresh = tThisFlipGlobal  # on global time
+        win.timeOnFlip(happy, 'tStartRefresh')  # time at next scr refresh
+        happy.setAutoDraw(True)
+    if happy.status == STARTED:
         # is it time to stop? (based on global clock, using actual start)
-        if tThisFlipGlobal > confident.tStartRefresh + 6-frameTolerance:
+        if tThisFlipGlobal > happy.tStartRefresh + 6-frameTolerance:
             # keep track of stop time/frame for later
-            confident.tStop = t  # not accounting for scr refresh
-            confident.frameNStop = frameN  # exact frame index
-            win.timeOnFlip(confident, 'tStopRefresh')  # time at next scr refresh
-            confident.setAutoDraw(False)
+            happy.tStop = t  # not accounting for scr refresh
+            happy.frameNStop = frameN  # exact frame index
+            win.timeOnFlip(happy, 'tStopRefresh')  # time at next scr refresh
+            happy.setAutoDraw(False)
     
     print(stimuli_status)
     outlet.push_sample(x=[stimuli_status])
@@ -221,10 +219,10 @@ while continueRoutine and routineTimer.getTime() > 0:
 for thisComponent in trialComponents:
     if hasattr(thisComponent, "setAutoDraw"):
         thisComponent.setAutoDraw(False)
-thisExp.addData('suspicious.started', suspicious.tStartRefresh)
-thisExp.addData('suspicious.stopped', suspicious.tStopRefresh)
-thisExp.addData('confident.started', confident.tStartRefresh)
-thisExp.addData('confident.stopped', confident.tStopRefresh)
+thisExp.addData('sadness.started', sadness.tStartRefresh)
+thisExp.addData('sadness.stopped', sadness.tStopRefresh)
+thisExp.addData('happy.started', happy.tStartRefresh)
+thisExp.addData('happy.stopped', happy.tStopRefresh)
 
 # Flip one final time so any remaining win.callOnFlip() 
 # and win.timeOnFlip() tasks get executed before quitting
