@@ -13,3 +13,4 @@ __pycache__/
 
 # Ignore Zach's notes
 *.zach
+psychopy_experiments/ekman_and_friesan_faces/.vscode/settings.json
