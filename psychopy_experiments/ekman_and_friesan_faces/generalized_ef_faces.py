@@ -38,7 +38,7 @@ from psychopy.hardware import keyboard
 from pylsl import StreamInfo, StreamOutlet # Import LSL streaming library
 
 # Import path to faces
-stimuli_folder = '/visual_stimuli/'
+stimuli_folder = 'visual_stimuli/'
 
 # Set up stream to LSL
 stream_info = StreamInfo(name='psychopy_stimuli', type='Markers',
@@ -123,7 +123,7 @@ routineTimer = core.CountdownTimer()  # to track time remaining of each (non-sli
 routineTimer.add(16.000000)
 # update component parameters for each repeat
 # keep track of which components have finished
-trialComponents = [sadness, happy]
+trialComponents = [sad, happy]
 for thisComponent in trialComponents:
     thisComponent.tStart = None
     thisComponent.tStop = None
@@ -148,7 +148,7 @@ while continueRoutine and routineTimer.getTime() > 0:
     frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
     # update/draw components on each frame
 
-    if (sadness.status == 1 or happy.status == 1):
+    if (sad.status == 1 or happy.status == 1):
         stimuli_status = 1
     else:
         stimuli_status = 0
@@ -158,25 +158,25 @@ while continueRoutine and routineTimer.getTime() > 0:
 #        'tThisFlip = {} \n   '+
 #        'tThisFlipGlobal = {} \n   '+
 #        'frameN = {} \n   '+
-#        'sadness.status = {} \n   '+
+#        'sad.status = {} \n   '+
 #        'happy.status = {} \n   '+
-#        '-----------------------------------------').format(continueRoutine, t, tThisFlip, tThisFlipGlobal, frameN, sadness.status, happy.status))
-    # *sadness* updates
-    if sadness.status == NOT_STARTED and tThisFlip >= 2-frameTolerance:
+#        '-----------------------------------------').format(continueRoutine, t, tThisFlip, tThisFlipGlobal, frameN, sad.status, happy.status))
+    # *sad* updates
+    if sad.status == NOT_STARTED and tThisFlip >= 2-frameTolerance:
         # keep track of start time/frame for later
-        sadness.frameNStart = frameN  # exact frame index
-        sadness.tStart = t  # local t and not account for scr refresh
-        sadness.tStartRefresh = tThisFlipGlobal  # on global time
-        win.timeOnFlip(sadness, 'tStartRefresh')  # time at next scr refresh
-        sadness.setAutoDraw(True)
-    if sadness.status == STARTED:
+        sad.frameNStart = frameN  # exact frame index
+        sad.tStart = t  # local t and not account for scr refresh
+        sad.tStartRefresh = tThisFlipGlobal  # on global time
+        win.timeOnFlip(sad, 'tStartRefresh')  # time at next scr refresh
+        sad.setAutoDraw(True)
+    if sad.status == STARTED:
         # is it time to stop? (based on global clock, using actual start)
-        if tThisFlipGlobal > sadness.tStartRefresh + 6-frameTolerance:
+        if tThisFlipGlobal > sad.tStartRefresh + 6-frameTolerance:
             # keep track of stop time/frame for later
-            sadness.tStop = t  # not accounting for scr refresh
-            sadness.frameNStop = frameN  # exact frame index
-            win.timeOnFlip(sadness, 'tStopRefresh')  # time at next scr refresh
-            sadness.setAutoDraw(False)
+            sad.tStop = t  # not accounting for scr refresh
+            sad.frameNStop = frameN  # exact frame index
+            win.timeOnFlip(sad, 'tStopRefresh')  # time at next scr refresh
+            sad.setAutoDraw(False)
     
     # *happy* updates
     if happy.status == NOT_STARTED and tThisFlip >= 10-frameTolerance:
@@ -219,8 +219,8 @@ while continueRoutine and routineTimer.getTime() > 0:
 for thisComponent in trialComponents:
     if hasattr(thisComponent, "setAutoDraw"):
         thisComponent.setAutoDraw(False)
-thisExp.addData('sadness.started', sadness.tStartRefresh)
-thisExp.addData('sadness.stopped', sadness.tStopRefresh)
+thisExp.addData('sad.started', sad.tStartRefresh)
+thisExp.addData('sad.stopped', sad.tStopRefresh)
 thisExp.addData('happy.started', happy.tStartRefresh)
 thisExp.addData('happy.stopped', happy.tStopRefresh)
 
