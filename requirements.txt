@@ -31,7 +31,7 @@ numpy==1.17.3
 opencv-python==4.1.1.26
 openpyxl==3.0.0
 pandas==0.25.3
-Pillow==6.2.1
+Pillow==8.1.1
 proglog==0.1.9
 psutil==5.6.5
 PsychoPy==3.2.3
