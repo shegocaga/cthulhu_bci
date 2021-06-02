@@ -64,7 +64,7 @@ sounddevice==0.3.14
 SoundFile==0.10.2
 tables==3.6.1
 tqdm==4.38.0
-urllib3==1.25.6
+urllib3==1.26.5
 wxPython==4.0.7.post1
 xarray==0.14.0
 xlrd==1.2.0
