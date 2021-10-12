@@ -28,7 +28,7 @@ msgpack==0.6.2
 msgpack-numpy==0.4.4.3
 numexpr==2.7.0
 numpy==1.17.3
-opencv-python==4.1.1.26
+opencv-python==4.2.0.32
 openpyxl==3.0.0
 pandas==0.25.3
 Pillow==6.2.1
